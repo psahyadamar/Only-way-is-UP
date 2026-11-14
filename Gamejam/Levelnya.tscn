@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ciomwiu3iqy4e"]
+
+[ext_resource type="PackedScene" uid="uid://bb37wtu1deuhg" path="res://yang baru.tscn" id="1_fkstt"]
+
+[node name="Node2D" type="Node2D" unique_id=14881383]
+
+[node name="Node2D" parent="." unique_id=1159760933 instance=ExtResource("1_fkstt")]
+position = Vector2(4, 7)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1474598815]
+position = Vector2(576, 325)
