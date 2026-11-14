@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://b52rvpcjfrt6o"]
+
+[node name="Kill Lava" type="Area2D" unique_id=1263590705]

@@ -4,12 +4,28 @@
 [ext_resource type="PackedScene" uid="uid://e5txbv3mu3af" path="res://Platform bawah.tscn" id="2_eudrh"]
 [ext_resource type="PackedScene" uid="uid://pcowgfb2f16b" path="res://kill.tscn" id="3_03wdf"]
 [ext_resource type="Texture2D" uid="uid://barq67eed08is" path="res://icon.svg" id="4_ctvbi"]
+[ext_resource type="Texture2D" uid="uid://dtqpwhywc6687" path="res://api.png" id="5_1infi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_370rq"]
 size = Vector2(90, 99)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7g27b"]
-size = Vector2(1175, 586.5)
+[sub_resource type="GDScript" id="GDScript_370rq"]
+script/source = "extends Sprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	$\".\".position.y += -3
+	
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4et6"]
+size = Vector2(2488.085, 326)
 
 [node name="Node2D" type="Node2D" unique_id=14881383]
 
@@ -39,12 +55,16 @@ texture = ExtResource("4_ctvbi")
 position = Vector2(179, 37)
 shape = SubResource("RectangleShape2D_370rq")
 
-[node name="Kill2" parent="." unique_id=708623693 instance=ExtResource("3_03wdf")]
-position = Vector2(589, 1044)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=333789884]
+position = Vector2(593.375, 1237)
+scale = Vector2(0.47908327, 0.99999994)
+texture = ExtResource("5_1infi")
+script = SubResource("GDScript_370rq")
 
-[node name="Sprite2D" type="Sprite2D" parent="Kill2" unique_id=1202744350]
-position = Vector2(110, -37)
+[node name="Kill2" parent="Sprite2D" unique_id=481969439 instance=ExtResource("3_03wdf")]
+scale = Vector2(1, 0.99999994)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Kill2" unique_id=1702291346]
-position = Vector2(-9.5, 236.75)
-shape = SubResource("RectangleShape2D_7g27b")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Kill2" unique_id=691887558]
+position = Vector2(11.741089, -3)
+scale = Vector2(0.9999997, 0.9999999)
+shape = SubResource("RectangleShape2D_h4et6")
