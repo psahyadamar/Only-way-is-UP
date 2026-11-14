@@ -3,9 +3,12 @@
 [sub_resource type="GDScript" id="GDScript_h4et6"]
 script/source = "extends Area2D
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(body: CharacterBody2D) -> void:
 	get_tree().reload_current_scene()
 
+func _process(delta: float) -> void:
+	$\".\".position.y += 10
+	
 	
 "
 

@@ -19,7 +19,7 @@ process_callback = 0
 limit_left = 0
 limit_right = 1152
 position_smoothing_enabled = true
-position_smoothing_speed = 2.0
+position_smoothing_speed = 3.0
 script = ExtResource("2_hwj2b")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=458634305]
