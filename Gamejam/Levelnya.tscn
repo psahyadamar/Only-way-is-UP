@@ -1,11 +1,50 @@
 [gd_scene format=3 uid="uid://ciomwiu3iqy4e"]
 
 [ext_resource type="PackedScene" uid="uid://bb37wtu1deuhg" path="res://yang baru.tscn" id="1_fkstt"]
+[ext_resource type="PackedScene" uid="uid://e5txbv3mu3af" path="res://Platform bawah.tscn" id="2_eudrh"]
+[ext_resource type="PackedScene" uid="uid://pcowgfb2f16b" path="res://kill.tscn" id="3_03wdf"]
+[ext_resource type="Texture2D" uid="uid://barq67eed08is" path="res://icon.svg" id="4_ctvbi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_370rq"]
+size = Vector2(90, 99)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7g27b"]
+size = Vector2(1175, 586.5)
 
 [node name="Node2D" type="Node2D" unique_id=14881383]
 
 [node name="Node2D" parent="." unique_id=1159760933 instance=ExtResource("1_fkstt")]
-position = Vector2(4, 7)
+position = Vector2(0, -4)
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1474598815]
-position = Vector2(576, 325)
+[node name="StaticBody2D" parent="." unique_id=873416842 instance=ExtResource("2_eudrh")]
+position = Vector2(-1, 578)
+
+[node name="StaticBody2D2" parent="." unique_id=1256883050 instance=ExtResource("2_eudrh")]
+position = Vector2(953, 298)
+
+[node name="StaticBody2D3" parent="." unique_id=1708979622 instance=ExtResource("2_eudrh")]
+position = Vector2(801, 438)
+
+[node name="StaticBody2D4" parent="." unique_id=1224968361 instance=ExtResource("2_eudrh")]
+position = Vector2(-604, 212)
+
+[node name="Kill" parent="." unique_id=2024418657 instance=ExtResource("3_03wdf")]
+position = Vector2(-110, 37)
+
+[node name="Sprite2D" type="Sprite2D" parent="Kill" unique_id=1773691836]
+position = Vector2(182, 38)
+texture = ExtResource("4_ctvbi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kill" unique_id=1894317837]
+position = Vector2(179, 37)
+shape = SubResource("RectangleShape2D_370rq")
+
+[node name="Kill2" parent="." unique_id=708623693 instance=ExtResource("3_03wdf")]
+position = Vector2(589, 1044)
+
+[node name="Sprite2D" type="Sprite2D" parent="Kill2" unique_id=1202744350]
+position = Vector2(110, -37)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kill2" unique_id=1702291346]
+position = Vector2(-9.5, 236.75)
+shape = SubResource("RectangleShape2D_7g27b")
