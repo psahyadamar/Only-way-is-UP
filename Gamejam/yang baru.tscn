@@ -1,17 +1,58 @@
 [gd_scene format=3 uid="uid://bb37wtu1deuhg"]
 
 [ext_resource type="Script" uid="uid://cl6krmkonue5d" path="res://character_body_2d.gd" id="1_ivwca"]
-[ext_resource type="Texture2D" uid="uid://barq67eed08is" path="res://icon.svg" id="2_cdudb"]
+[ext_resource type="Texture2D" uid="uid://dn8wha8h1w88y" path="res://pixil-frame-0 (3).png" id="2_3wwgh"]
 [ext_resource type="Script" uid="uid://dxadv7rn48115" path="res://camera_2d.gd" id="2_hwj2b"]
+[ext_resource type="Texture2D" uid="uid://t4ujr3chptjf" path="res://pixil-frame-0 (1).png" id="3_cdudb"]
+[ext_resource type="Texture2D" uid="uid://4kii6ohwysc7" path="res://pixil-frame-0 (2).png" id="3_hwj2b"]
+
+[sub_resource type="GDScript" id="GDScript_1hnyx"]
+script/source = "extends Node2D
+@onready var anim = $Player/AnimatedSprite2D
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	anim.play(\"idle\")
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_370rq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3wwgh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hwj2b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_cdudb")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ivwca"]
 size = Vector2(127, 127)
 
 [node name="Node2D" type="Node2D" unique_id=1159760933]
+script = SubResource("GDScript_1hnyx")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=219313754]
 position = Vector2(490, 4)
 script = ExtResource("1_ivwca")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=1080264168]
+position = Vector2(84, 447)
+scale = Vector2(1.84, 1.84)
+sprite_frames = SubResource("SpriteFrames_370rq")
+animation = &"idle"
+frame_progress = 0.22595054
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1793758636]
 position = Vector2(92, 325)
@@ -19,12 +60,8 @@ process_callback = 0
 limit_left = 0
 limit_right = 1152
 position_smoothing_enabled = true
-position_smoothing_speed = 3.0
+position_smoothing_speed = 7.0
 script = ExtResource("2_hwj2b")
-
-[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=458634305]
-position = Vector2(84, 446)
-texture = ExtResource("2_cdudb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1985277730]
 position = Vector2(84, 446)
